@@ -4,7 +4,7 @@ log=./runconfig_`/bin/date +\%Y\%m\%d`.log
 timestamp=$(date +'%H:%M:%S_%d/%m/%Y')
 
 echo "===============================================================" >> $log 2>&1
-echo "=                    Konfigurasi Server Ubuntu 22.04          =" >> $log 2>&1
+echo "=             Konfigurasi Server Ubuntu 22.04                 =" >> $log 2>&1
 echo "=                      Versi 1.0.0                            =" >> $log 2>&1
 echo "===============================================================" >> $log 2>&1
 echo "$timestamp" >> $log 2>&1

@@ -1,0 +1,1 @@
+curl -o /opt/config_initiation23.04.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/ubuntu-23.04/config_initiation2304.txt && chmod +x /opt/config_initiation23.04.sh && sh /opt/config_initiation23.04.sh
