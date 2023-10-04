@@ -1,0 +1,68 @@
+===============================================================
+=                    Konfigurasi Server Ubuntu 22.04          =
+=                      Versi 1.0.0                            =
+===============================================================
+04:38:54_03/10/2023
+01. Update OS & Repository
+Update dan Upgrade Ubuntu
+================ Start Step 01 =======================
+Hit:1 http://mirrors.digitalocean.com/ubuntu jammy InRelease
+Hit:2 http://mirrors.digitalocean.com/ubuntu jammy-updates InRelease
+Hit:3 http://mirrors.digitalocean.com/ubuntu jammy-backports InRelease
+Hit:4 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
+Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+================ Finish Step 01 ======================
+02. Install Componen Software
+================ Start Step 02 =======================
+Reading package lists...
+Building dependency tree...
+Reading state information...
+fontconfig is already the newest version (2.13.1-4.2ubuntu5).
+make is already the newest version (4.3-4.1build1).
+nano is already the newest version (6.2-1).
+net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
+wget is already the newest version (1.21.2-2ubuntu1).
+curl is already the newest version (7.81.0-1ubuntu1.13).
+libfreetype6 is already the newest version (2.11.1+dfsg-1ubuntu0.2).
+ufw is already the newest version (0.36.1-4ubuntu0.1).
+vim is already the newest version (2:8.2.3995-1ubuntu2.11).
+sudo is already the newest version (1.9.14-1).
+0 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? Firewall is active and enabled on system startup
+================ Finish Step 02 ======================
+03. Pembuatan User Admin Pancaran
+================ Start Step 03 =======================
+adduser: The user `supportsys' already exists.
+================ Finish Step 03 ======================
+04. Konfigurasi Standart SSH Security
+================ Start Step 04 =======================
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+Firewall reloaded
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? Firewall is active and enabled on system startup
+================ Finish Step 04 ======================
+05. Instalasi Fail2ban
+================ Start Step 05 =======================
+Hit:1 http://mirrors.digitalocean.com/ubuntu jammy InRelease
+Hit:2 http://mirrors.digitalocean.com/ubuntu jammy-updates InRelease
+Hit:3 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
+Hit:4 http://mirrors.digitalocean.com/ubuntu jammy-backports InRelease
+Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+fail2ban is already the newest version (0.11.2-6).
+0 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Synchronizing state of fail2ban.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable fail2ban
+================ Finish Step 05 ======================
+06. Instalasi Sudo 1.9.14
+================ Start Step 06 =======================
+version sudo sudah menggunakan version 1.9.14-1
+===============================================================
+=               Instalasi Sudah Selesai                       =
+===============================================================
