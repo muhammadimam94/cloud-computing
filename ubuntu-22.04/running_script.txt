@@ -1,0 +1,5 @@
+curl https://github.com/muhammadimam94/cloud-computing/blob/main/VPS%20Linux%20Ubuntu%2022.04%20v1.0.0/config_initiation22.04.txt -O /opt/config_initiation22.04.sh && chmod +x /opt/config_initiation22.04.sh && sh /opt/config_initiation22.04.sh
+
+
+
+curl -o /opt/config_initiation22.04.sh https://github.com/muhammadimam94/cloud-computing/blob/main/VPS%20Linux%20Ubuntu%2022.04%20v1.0.0/config_initiation22.04.txt && chmod +x /opt/config_initiation22.04.sh && sh /opt/config_initiation22.04.sh
