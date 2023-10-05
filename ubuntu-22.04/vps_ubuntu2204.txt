@@ -4,7 +4,7 @@ log=./runconfig_`/bin/date +\%Y\%m\%d`.log
 timestamp=$(date +'%H:%M:%S_%d/%m/%Y')
 
 echo "===============================================================" >> $log 2>&1
-echo "=            Konfigurasi Server Ubuntu 23.04                  =" >> $log 2>&1
+echo "=             Konfigurasi Server Ubuntu 22.04                 =" >> $log 2>&1
 echo "=                      Versi 1.0.0                            =" >> $log 2>&1
 echo "===============================================================" >> $log 2>&1
 echo "$timestamp" >> $log 2>&1
@@ -29,14 +29,12 @@ sudo adduser --disabled-password --gecos "" supportsys >> $log 2>&1
 sudo echo "supportsys:64&qXoSP#A!s98kY" | sudo chpasswd >> $log 2>&1
 sudo echo "root:8WF8R&QuMH8bLMc?" | sudo chpasswd >> $log 2>&1
 sudo usermod -aG sudo supportsys >> $log 2>&1
-sudo usermod -aG root supportsys >> $log 2>&1
 echo "================ Finish Step 03 ======================" >> $log 2>&1
 echo "step 03. Pembuatan User Admin Pancaran oke"
 
 echo "04. Konfigurasi Standart SSH Security" >> $log 2>&1
 echo "================ Start Step 04 =======================" >> $log 2>&1
 sed -i 's/#Port 22/Port 33133/g' /etc/ssh/sshd_config
-sed -i 's/Port 22/Port 33133/g' /etc/ssh/sshd_config
 sed -i 's/#LogLevel INFO/LogLevel INFO/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
@@ -50,26 +48,23 @@ sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
 echo "Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" >> /etc/ssh/sshd_config
 echo "KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org,sntrup761x25519-sha512@openssh.com" >> /etc/ssh/sshd_config
-sed -i 's/ListenStream=22/ListenStream=33133/g' /lib/systemd/system/ssh.socket
 sudo ufw allow 33133/tcp >> $log 2>&1
 sudo ufw deny 22/tcp >> $log 2>&1
 sudo ufw reload >> $log 2>&1
 echo "y" | sudo ufw enable >> $log 2>&1
-sudo systemctl daemon-reload >> $log 2>&1
-sudo systemctl restart ssh >> $log 2>&1
+sudo systemctl restart sshd >> $log 2>&1
 echo "================ Finish Step 04 ======================" >> $log 2>&1
 echo "step 04. Konfigurasi Standart SSH Security oke"
-
 
 echo "05. Instalasi Fail2ban" >> $log 2>&1
 echo "================ Start Step 05 =======================" >> $log 2>&1
 sudo apt-get update -y >> $log 2>&1
 sudo apt-get install fail2ban -y >> $log 2>&1
 cat<<EOF>>/etc/fail2ban/jail.local
-[ssh]
+[sshd]
 enabled = true
 port = ssh
-filter = ssh
+filter = sshd
 logpath = /var/log/auth.log
 maxretry = 3
 findtime = 1d
@@ -99,7 +94,6 @@ echo "================ Start Step 07 =======================" >> $log 2>&1
 sudo timedatectl set-timezone Asia/Jakarta >> $log 2>&1
 echo "================ Finish Step 07 ======================" >> $log 2>&1
 echo "step 07. Konfigurasi Date and Time Ubuntu 22.04 oke"
-
 
 echo ""
 echo "===============================================================" >> $log 2>&1
