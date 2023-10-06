@@ -1,6 +1,6 @@
 #!/bin/bash
 
-log=./runconfig_`/bin/date +\%Y\%m\%d`.log
+log=/opt/runconfig_`/bin/date +\%Y\%m\%d`.log
 timestamp=$(date +'%H:%M:%S_%d/%m/%Y')
 
 echo "===============================================================" >> $log 2>&1
