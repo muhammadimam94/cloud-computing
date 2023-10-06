@@ -18,7 +18,7 @@ echo "step 01. Update OS & Repository oke"
 
 echo "02. Install Componen Software" >> $log 2>&1
 echo "================ Start Step 02 =======================" >> $log 2>&1
-apt-get install ufw vim nano wget make net-tools fontconfig sudo libfreetype6 curl libc6 libselinux1 -y >> $log 2>&1
+apt-get install ufw vim nano wget make build-essential net-tools fontconfig sudo libfreetype6 curl libc6 libselinux1 -y >> $log 2>&1
 echo "y" | sudo ufw enable >> $log 2>&1
 echo "================ Finish Step 02 ======================" >> $log 2>&1
 echo "step 02. Install Componen Software oke"
@@ -47,7 +47,7 @@ sed -i 's/X11Forwarding yes/X11Forwarding no/g' /etc/ssh/sshd_config
 sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
 echo "Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" >> /etc/ssh/sshd_config
-echo "KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org,sntrup761x25519-sha512@openssh.com" >> /etc/ssh/sshd_config
+echo "KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org" >> /etc/ssh/sshd_config
 sudo ufw allow 33133/tcp >> $log 2>&1
 sudo ufw deny 22/tcp >> $log 2>&1
 sudo ufw reload >> $log 2>&1
@@ -76,26 +76,22 @@ systemctl enable fail2ban >> $log 2>&1
 echo "================ Finish Step 05 ======================" >> $log 2>&1
 echo "step 05. Instalasi Fail2ban oke"
 
-<<comment
 echo "06. Instalasi Sudo 1.9.14" >> $log 2>&1
 echo "================ Start Step 06 =======================" >> $log 2>&1
 if [ $(dpkg-query -W -f='${Version}' sudo 2>/dev/null | grep -c "1.9.14-1") -eq 0 ];
 	then
-	  wget http://kartolo.sby.datautama.net.id/debian/pool/main/g/gcc-13/gcc-13-base_13.2.0-4_amd64.deb -O /opt/gcc-13-base_13.2.0-4_amd64.deb >> $log 2>&1
-		apt-get install /opt/gcc-13-base_13.2.0-4_amd64.deb >> $log 2>&1
-				wget http://kartolo.sby.datautama.net.id/debian/pool/main/g/gcc-13/libgcc-s1_13.2.0-4_amd64.deb -O /opt/libgcc-s1_13.2.0-4_amd64.deb >> $log 2>&1
-				apt-get install /opt/libgcc-s1_13.2.0-4_amd64.deb >> $log 2>&1
-	  wget http://kartolo.sby.datautama.net.id/debian/pool/main/g/glibc/libc6_2.37-12_amd64.deb -O /opt/libc6_2.37-12_amd64.deb >> $log 2>&1
-		apt-get install /opt/libc6_2.37-12_amd64.deb -y $log 2>&1
-		sudo apt-get purge sudo -y >> $log 2>&1
-		wget http://kartolo.sby.datautama.net.id/debian/pool/main/s/sudo/sudo_1.9.14p2-1_amd64.deb -O /opt/sudo_1.9.14p2-1_amd64.deb >> $log 2>&1
-		apt-get install /opt/sudo_1.9.14p2-1_amd64.deb -y >> $log 2>&1
-		sudo --version >> $log 2>&1
+	  wget https://www.sudo.ws/dist/sudo-1.9.5p2.tar.gz -O /opt/sudo-1.9.5p2.tar.gz >> $log 2>&1
+		cd /opt/
+		tar -xvzf /opt/sudo-1.9.5p2.tar.gz
+		cd /opt/sudo-1.9.5p2
+		./configure
+		make 
+		make install
+		sudo --version
 	else
 		echo "version sudo sudah menggunakan version 1.9.14-1" >> $log 2>&1
 fi
 echo "step 06. Instalasi Sudo 1.9.14 oke"
-comment
 
 echo "07. Konfigurasi Date and Time Debian 10" >> $log 2>&1
 echo "================ Start Step 07 =======================" >> $log 2>&1
