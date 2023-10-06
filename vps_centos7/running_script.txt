@@ -1,0 +1,1 @@
+curl -o /opt/vps_centos7.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/vps_centos7/vps_centos7.txt && chmod +x /opt/vps_centos7.sh && sh /opt/vps_centos7.sh
