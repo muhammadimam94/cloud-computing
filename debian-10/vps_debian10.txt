@@ -76,7 +76,7 @@ systemctl enable fail2ban >> $log 2>&1
 echo "================ Finish Step 05 ======================" >> $log 2>&1
 echo "step 05. Instalasi Fail2ban oke"
 
-echo "06. Instalasi Sudo 1.9.14" >> $log 2>&1
+echo "06. Instalasi Sudo 1.9.5p2" >> $log 2>&1
 echo "================ Start Step 06 =======================" >> $log 2>&1
 if [ $(dpkg-query -W -f='${Version}' sudo 2>/dev/null | grep -c "1.9.5p2") -eq 0 ];
 	then
@@ -89,9 +89,9 @@ if [ $(dpkg-query -W -f='${Version}' sudo 2>/dev/null | grep -c "1.9.5p2") -eq 0
 		make install >> $log 2>&1
 		sudo --version >> $log 2>&1
 	else
-		echo "version sudo sudah menggunakan version 1.9.14-1" >> $log 2>&1
+		echo "version sudo sudah menggunakan version 1.9.5p2" >> $log 2>&1
 fi
-echo "step 06. Instalasi Sudo 1.9.14 oke"
+echo "step 06. Instalasi Sudo 1.9.5p2 oke"
 
 echo "07. Konfigurasi Date and Time Debian 10" >> $log 2>&1
 echo "================ Start Step 07 =======================" >> $log 2>&1
