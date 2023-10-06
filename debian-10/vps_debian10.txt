@@ -81,13 +81,13 @@ echo "================ Start Step 06 =======================" >> $log 2>&1
 if [ $(dpkg-query -W -f='${Version}' sudo 2>/dev/null | grep -c "1.9.14-1") -eq 0 ];
 	then
 	  wget https://www.sudo.ws/dist/sudo-1.9.5p2.tar.gz -O /opt/sudo-1.9.5p2.tar.gz >> $log 2>&1
-		cd /opt/
-		tar -xvzf /opt/sudo-1.9.5p2.tar.gz
-		cd /opt/sudo-1.9.5p2
-		./configure
-		make 
-		make install
-		sudo --version
+		cd /opt/ >> $log 2>&1
+		tar -xvzf /opt/sudo-1.9.5p2.tar.gz >> $log 2>&1
+		cd /opt/sudo-1.9.5p2 >> $log 2>&1
+		./configure >> $log 2>&1
+		make  >> $log 2>&1
+		make install >> $log 2>&1
+		sudo --version >> $log 2>&1
 	else
 		echo "version sudo sudah menggunakan version 1.9.14-1" >> $log 2>&1
 fi
