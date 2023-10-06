@@ -18,8 +18,7 @@ echo "step 01. Update OS & Repository oke"
 
 echo "02. Install Componen Software" >> $log 2>&1
 echo "================ Start Step 02 =======================" >> $log 2>&1
-yum install ufw vim nano wget make net-tools fontconfig sudo libfreetype6 curl -y >> $log 2>&1
-echo "y" | sudo ufw enable >> $log 2>&1
+yum install firewalld epel-release vim nano wget make net-tools fontconfig sudo libfreetype6 curl -y >> $log 2>&1
 echo "================ Finish Step 02 ======================" >> $log 2>&1
 echo "step 02. Install Componen Software oke"
 
@@ -50,10 +49,11 @@ echo "Protocol 2" >> /etc/ssh/sshd_config
 echo "Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" >> /etc/ssh/sshd_config
 echo "KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org,sntrup761x25519-sha512@openssh.com" >> /etc/ssh/sshd_config
 sudo systemctl start firewalld >> $log 2>&1
+sudo systemctl enable firewalld >> $log 2>&1
 sudo firewall-cmd --zone=public --add-port=33133/tcp --permanent >> $log 2>&1
 firewall-cmd --zone=public --add-rich-rule 'rule priority="30000" family="ipv4" port port="24" protocol="tcp" reject'
 firewall-cmd --zone=public --permanent --remove-port=5555/tcp  >> $log 2>&1
-firewall-reload
+firewall-cmd --reload
 echo "================ Finish Step 04 ======================" >> $log 2>&1
 echo "step 04. Konfigurasi Standart SSH Security oke"
 
