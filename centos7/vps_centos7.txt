@@ -25,8 +25,8 @@ echo "step 02. Install Componen Software oke"
 echo "03. Pembuatan User Admin Pancaran" >> $log 2>&1
 echo "================ Start Step 03 =======================" >> $log 2>&1
 sudo adduser supportsys >> $log 2>&1
-sudo echo "supportsys:P@ssword" | sudo chpasswd >> $log 2>&1
-sudo echo "root:kumbang" | sudo chpasswd >> $log 2>&1
+sudo echo "supportsys:64&qXoSP#A!s98kY" | sudo chpasswd >> $log 2>&1
+sudo echo "root:8WF8R&QuMH8bLMc?" | sudo chpasswd >> $log 2>&1
 sudo usermod -aG sudo supportsys >> $log 2>&1
 echo "supportsys ALL=(ALL) ALL" >> /etc/sudoers
 echo "================ Finish Step 03 ======================" >> $log 2>&1
@@ -47,7 +47,7 @@ sed -i 's/X11Forwarding yes/X11Forwarding no/g' /etc/ssh/sshd_config
 sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
 echo "Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" >> /etc/ssh/sshd_config
-echo "KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org,sntrup761x25519-sha512@openssh.com" >> /etc/ssh/sshd_config
+echo "KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org" >> /etc/ssh/sshd_config
 sudo systemctl start firewalld >> $log 2>&1
 sudo systemctl enable firewalld >> $log 2>&1
 sudo firewall-cmd --zone=public --add-port=33133/tcp --permanent >> $log 2>&1
