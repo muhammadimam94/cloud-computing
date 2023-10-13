@@ -27,7 +27,6 @@ echo "================ Start Step 03 =======================" >> $log 2>&1
 sudo adduser supportsys >> $log 2>&1
 sudo echo "supportsys:64&qXoSP#A!s98kY" | sudo chpasswd >> $log 2>&1
 sudo echo "root:8WF8R&QuMH8bLMc?" | sudo chpasswd >> $log 2>&1
-sudo usermod -aG sudo supportsys >> $log 2>&1
 echo "supportsys ALL=(ALL) ALL" >> /etc/sudoers
 echo "================ Finish Step 03 ======================" >> $log 2>&1
 echo "step 03. Pembuatan User Admin Pancaran oke"
@@ -53,6 +52,7 @@ sudo systemctl enable firewalld >> $log 2>&1
 sudo firewall-cmd --zone=public --add-port=33133/tcp --permanent >> $log 2>&1
 firewall-cmd --zone=public --permanent --remove-port=5555/tcp  >> $log 2>&1
 firewall-cmd --reload
+sudo systemctl restart sshd >> $log 2>&1
 echo "================ Finish Step 04 ======================" >> $log 2>&1
 echo "step 04. Konfigurasi Standart SSH Security oke"
 
@@ -77,9 +77,9 @@ echo "================ Finish Step 05 ======================" >> $log 2>&1
 echo "step 05. Instalasi Fail2ban oke"
 
 echo "06. Konfigurasi Date and Time Centos 7" >> $log 2>&1
-echo "================ Start Step 07 =======================" >> $log 2>&1
+echo "================ Start Step 06 =======================" >> $log 2>&1
 sudo timedatectl set-timezone Asia/Jakarta >> $log 2>&1
-echo "================ Finish Step 07 ======================" >> $log 2>&1
+echo "================ Finish Step 06 ======================" >> $log 2>&1
 echo "step 06. Konfigurasi Date and Time Centos 7 oke"
 
 echo ""
