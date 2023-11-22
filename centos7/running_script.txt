@@ -1,1 +1,1 @@
-curl -o /opt/vps_centos7.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/centos7/vps_centos7.txt && chmod +x /opt/vps_centos7.sh && sh /opt/vps_centos7.sh
+sudo curl -o /opt/vps_centos7.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/centos7/vps_centos7.txt && sudo chmod +x /opt/vps_centos7.sh && sudo sh /opt/vps_centos7.sh

@@ -1,1 +1,1 @@
-curl -o /opt/vps_debian10.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/debian-10/vps_debian10.txt && chmod +x /opt/vps_debian10.sh && sh /opt/vps_debian10.sh
+sudo curl -o /opt/vps_debian10.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/debian-10/vps_debian10.txt && sudo chmod +x /opt/vps_debian10.sh && sudo sh /opt/vps_debian10.sh

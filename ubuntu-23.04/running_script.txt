@@ -1,1 +1,1 @@
-curl -o /opt/vps_ubuntu2304.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/ubuntu-23.04/vps_ubuntu2304.txt && chmod +x /opt/vps_ubuntu2304.sh && sh /opt/vps_ubuntu2304.sh
+sudo curl -o /opt/vps_ubuntu2304.sh https://raw.githubusercontent.com/muhammadimam94/cloud-computing/main/ubuntu-23.04/vps_ubuntu2304.txt && sudo chmod +x /opt/vps_ubuntu2304.sh && sudo sh /opt/vps_ubuntu2304.sh
