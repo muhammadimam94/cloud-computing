@@ -1,337 +1,0 @@
-===============================================================
-=                    Konfigurasi Server Ubuntu 22.04          =
-=                      Versi 1.0.0                            =
-===============================================================
-04:39:46_03/10/2023
-01. Update OS & Repository
-Update dan Upgrade Ubuntu
-================ Start Step 01 =======================
-Hit:1 http://mirrors.digitalocean.com/ubuntu jammy InRelease
-Hit:2 http://mirrors.digitalocean.com/ubuntu jammy-updates InRelease
-Hit:3 http://mirrors.digitalocean.com/ubuntu jammy-backports InRelease
-Hit:4 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
-Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
-Reading package lists...
-================ Finish Step 01 ======================
-02. Install Componen Software
-================ Start Step 02 =======================
-Reading package lists...
-Building dependency tree...
-Reading state information...
-fontconfig is already the newest version (2.13.1-4.2ubuntu5).
-make is already the newest version (4.3-4.1build1).
-nano is already the newest version (6.2-1).
-net-tools is already the newest version (1.60+git20181103.0eebece-1ubuntu5).
-wget is already the newest version (1.21.2-2ubuntu1).
-curl is already the newest version (7.81.0-1ubuntu1.13).
-libfreetype6 is already the newest version (2.11.1+dfsg-1ubuntu0.2).
-ufw is already the newest version (0.36.1-4ubuntu0.1).
-vim is already the newest version (2:8.2.3995-1ubuntu2.11).
-The following NEW packages will be installed:
-  sudo
-0 upgraded, 1 newly installed, 0 to remove and 66 not upgraded.
-Need to get 0 B/821 kB of archives.
-After this operation, 2568 kB of additional disk space will be used.
-Selecting previously unselected package sudo.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94434 files and directories currently installed.)
-Preparing to unpack .../sudo_1.9.9-1ubuntu2.4_amd64.deb ...
-Unpacking sudo (1.9.9-1ubuntu2.4) ...
-Setting up sudo (1.9.9-1ubuntu2.4) ...
-Processing triggers for man-db (2.10.2-1) ...
-Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
-Command may disrupt existing ssh connections. Proceed with operation (y|n)? Firewall is active and enabled on system startup
-================ Finish Step 02 ======================
-03. Pembuatan User Admin Pancaran
-================ Start Step 03 =======================
-adduser: The user `supportsys' already exists.
-================ Finish Step 03 ======================
-04. Konfigurasi Standart SSH Security
-================ Start Step 04 =======================
-Skipping adding existing rule
-Skipping adding existing rule (v6)
-Skipping adding existing rule
-Skipping adding existing rule (v6)
-Firewall reloaded
-Command may disrupt existing ssh connections. Proceed with operation (y|n)? Firewall is active and enabled on system startup
-================ Finish Step 04 ======================
-05. Instalasi Fail2ban
-================ Start Step 05 =======================
-Hit:1 http://mirrors.digitalocean.com/ubuntu jammy InRelease
-Hit:2 http://mirrors.digitalocean.com/ubuntu jammy-updates InRelease
-Hit:3 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
-Hit:4 http://mirrors.digitalocean.com/ubuntu jammy-backports InRelease
-Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-fail2ban is already the newest version (0.11.2-6).
-0 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
-Synchronizing state of fail2ban.service with SysV service script with /lib/systemd/systemd-sysv-install.
-Executing: /lib/systemd/systemd-sysv-install enable fail2ban
-================ Finish Step 05 ======================
-06. Instalasi Sudo 1.9.14
-================ Start Step 06 =======================
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following packages will be REMOVED:
-  sudo*
-0 upgraded, 0 newly installed, 1 to remove and 66 not upgraded.
-After this operation, 2568 kB disk space will be freed.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94502 files and directories currently installed.)
-Removing sudo (1.9.9-1ubuntu2.4) ...
-Processing triggers for man-db (2.10.2-1) ...
-Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94441 files and directories currently installed.)
-Purging configuration files for sudo (1.9.9-1ubuntu2.4) ...
-dpkg: warning: while removing sudo, directory '/etc/sudoers.d' not empty so not removed
---2023-10-03 04:40:14--  https://github.com/sudo-project/sudo/releases/download/SUDO_1_9_14/sudo_1.9.14-1_ubu2204_amd64.deb
-Resolving github.com (github.com)... 20.205.243.166
-Connecting to github.com (github.com)|20.205.243.166|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/57972154/74ef4a05-1d3b-4aae-ac26-47ccce8115e7?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231003%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231003T044014Z&X-Amz-Expires=300&X-Amz-Signature=2ec827c5280e3ef0795ce5edfeaa310a6b5019064a97c33ce4db604ab9c92ff5&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=57972154&response-content-disposition=attachment%3B%20filename%3Dsudo_1.9.14-1_ubu2204_amd64.deb&response-content-type=application%2Foctet-stream [following]
---2023-10-03 04:40:14--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/57972154/74ef4a05-1d3b-4aae-ac26-47ccce8115e7?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231003%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231003T044014Z&X-Amz-Expires=300&X-Amz-Signature=2ec827c5280e3ef0795ce5edfeaa310a6b5019064a97c33ce4db604ab9c92ff5&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=57972154&response-content-disposition=attachment%3B%20filename%3Dsudo_1.9.14-1_ubu2204_amd64.deb&response-content-type=application%2Foctet-stream
-Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.110.133, 185.199.108.133, 185.199.111.133, ...
-Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.110.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3308598 (3.2M) [application/octet-stream]
-Saving to: ‘/opt/sudo_1.9.14-1_ubu2204_amd64.deb’
-
-     0K .......... .......... .......... .......... ..........  1% 16.1M 0s
-    50K .......... .......... .......... .......... ..........  3% 17.2M 0s
-   100K .......... .......... .......... .......... ..........  4% 14.2M 0s
-   150K .......... .......... .......... .......... ..........  6% 21.8M 0s
-   200K .......... .......... .......... .......... ..........  7% 17.0M 0s
-   250K .......... .......... .......... .......... ..........  9% 18.5M 0s
-   300K .......... .......... .......... .......... .......... 10% 16.5M 0s
-   350K .......... .......... .......... .......... .......... 12% 13.4M 0s
-   400K .......... .......... .......... .......... .......... 13% 18.7M 0s
-   450K .......... .......... .......... .......... .......... 15% 16.9M 0s
-   500K .......... .......... .......... .......... .......... 17% 18.6M 0s
-   550K .......... .......... .......... .......... .......... 18% 15.1M 0s
-   600K .......... .......... .......... .......... .......... 20% 17.9M 0s
-   650K .......... .......... .......... .......... .......... 21% 11.8M 0s
-   700K .......... .......... .......... .......... .......... 23% 31.4M 0s
-   750K .......... .......... .......... .......... .......... 24% 14.4M 0s
-   800K .......... .......... .......... .......... .......... 26% 16.2M 0s
-   850K .......... .......... .......... .......... .......... 27% 17.6M 0s
-   900K .......... .......... .......... .......... .......... 29% 17.5M 0s
-   950K .......... .......... .......... .......... .......... 30% 19.3M 0s
-  1000K .......... .......... .......... .......... .......... 32% 10.3M 0s
-  1050K .......... .......... .......... .......... .......... 34% 4.09M 0s
-  1100K .......... .......... .......... .......... .......... 35% 78.5M 0s
-  1150K .......... .......... .......... .......... .......... 37% 80.8M 0s
-  1200K .......... .......... .......... .......... .......... 38%  113M 0s
-  1250K .......... .......... .......... .......... .......... 40% 96.8M 0s
-  1300K .......... .......... .......... .......... .......... 41% 27.3M 0s
-  1350K .......... .......... .......... .......... .......... 43% 14.6M 0s
-  1400K .......... .......... .......... .......... .......... 44% 9.72M 0s
-  1450K .......... .......... .......... .......... .......... 46% 58.0M 0s
-  1500K .......... .......... .......... .......... .......... 47% 15.2M 0s
-  1550K .......... .......... .......... .......... .......... 49% 14.2M 0s
-  1600K .......... .......... .......... .......... .......... 51% 14.4M 0s
-  1650K .......... .......... .......... .......... .......... 52% 23.6M 0s
-  1700K .......... .......... .......... .......... .......... 54% 18.4M 0s
-  1750K .......... .......... .......... .......... .......... 55% 14.7M 0s
-  1800K .......... .......... .......... .......... .......... 57% 19.6M 0s
-  1850K .......... .......... .......... .......... .......... 58% 17.5M 0s
-  1900K .......... .......... .......... .......... .......... 60% 15.5M 0s
-  1950K .......... .......... .......... .......... .......... 61% 14.5M 0s
-  2000K .......... .......... .......... .......... .......... 63% 18.3M 0s
-  2050K .......... .......... .......... .......... .......... 64% 17.2M 0s
-  2100K .......... .......... .......... .......... .......... 66% 15.3M 0s
-  2150K .......... .......... .......... .......... .......... 68% 19.3M 0s
-  2200K .......... .......... .......... .......... .......... 69% 16.9M 0s
-  2250K .......... .......... .......... .......... .......... 71% 18.2M 0s
-  2300K .......... .......... .......... .......... .......... 72% 17.2M 0s
-  2350K .......... .......... .......... .......... .......... 74% 13.1M 0s
-  2400K .......... .......... .......... .......... .......... 75% 14.3M 0s
-  2450K .......... .......... .......... .......... .......... 77% 23.0M 0s
-  2500K .......... .......... .......... .......... .......... 78% 12.3M 0s
-  2550K .......... .......... .......... .......... .......... 80% 28.3M 0s
-  2600K .......... .......... .......... .......... .......... 82% 17.0M 0s
-  2650K .......... .......... .......... .......... .......... 83% 16.8M 0s
-  2700K .......... .......... .......... .......... .......... 85% 18.3M 0s
-  2750K .......... .......... .......... .......... .......... 86% 12.6M 0s
-  2800K .......... .......... .......... .......... .......... 88% 12.0M 0s
-  2850K .......... .......... .......... .......... .......... 89% 18.4M 0s
-  2900K .......... .......... .......... .......... .......... 91% 37.2M 0s
-  2950K .......... .......... .......... .......... .......... 92% 11.6M 0s
-  3000K .......... .......... .......... .......... .......... 94% 20.8M 0s
-  3050K .......... .......... .......... .......... .......... 95% 16.3M 0s
-  3100K .......... .......... .......... .......... .......... 97% 17.8M 0s
-  3150K .......... .......... .......... .......... .......... 99% 10.4M 0s
-  3200K .......... .......... .......... .                    100% 51.1M=0.2s
-
-2023-10-03 04:40:15 (16.6 MB/s) - ‘/opt/sudo_1.9.14-1_ubu2204_amd64.deb’ saved [3308598/3308598]
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following NEW packages will be installed:
-  sudo
-0 upgraded, 1 newly installed, 0 to remove and 66 not upgraded.
-Need to get 0 B/3309 kB of archives.
-After this operation, 10.7 MB of additional disk space will be used.
-Get:1 /opt/sudo_1.9.14-1_ubu2204_amd64.deb sudo amd64 1.9.14-1 [3309 kB]
-Selecting previously unselected package sudo.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 94434 files and directories currently installed.)
-Preparing to unpack .../sudo_1.9.14-1_ubu2204_amd64.deb ...
-Unpacking sudo (1.9.14-1) ...
-Setting up sudo (1.9.14-1) ...
-Processing triggers for man-db (2.10.2-1) ...
-Sudo version 1.9.14
-Configure options: --prefix=/usr --with-all-insults --with-pam --enable-zlib=system --with-fqdn --with-logging=syslog --with-logfac=authpriv --with-env-editor --with-editor=/usr/bin/editor --with-timeout=15 --with-password-timeout=0 --with-passprompt=[sudo] password for %p:  --disable-root-mailer --with-sendmail=/usr/sbin/sendmail --mandir=/usr/share/man --libexecdir=/usr/libexec --with-linux-audit --enable-warnings --cache-file=../config.cache --enable-package-build --enable-admin-flag --without-lecture --with-sssd --with-sssd-lib=/usr/lib/x86_64-linux-gnu --with-apparmor --enable-openssl --enable-python --disable-tmpfiles.d
-Sudoers policy plugin version 1.9.14
-Sudoers file grammar version 50
-
-Sudoers path: /etc/sudoers
-Authentication methods: 'pam'
-Syslog facility if syslog is being used for logging: authpriv
-Syslog priority to use when user authenticates successfully: notice
-Syslog priority to use when user authenticates unsuccessfully: alert
-Send mail if user authentication fails
-Send mail if the user is not in sudoers
-Lecture user the first time they run sudo
-Require users to authenticate by default
-Root may run sudo
-Allow some information gathering to give useful error messages
-Require fully-qualified hostnames in the sudoers file
-Visudo will honor the EDITOR environment variable
-Set the LOGNAME and USER environment variables
-Length at which to wrap log file lines (0 for no wrap): 80
-Authentication timestamp timeout: 15.0 minutes
-Password prompt timeout: 0.0 minutes
-Number of tries to enter a password: 3
-Umask to use or 0777 to use user's: 022
-Path to mail program: /usr/sbin/sendmail
-Flags for mail program: -t
-Address to send mail to: root
-Subject line for mail messages: *** SECURITY information for %h ***
-Incorrect password message: Sorry, try again.
-Path to lecture status dir: /var/lib/sudo/lectured
-Path to authentication timestamp dir: /run/sudo/ts
-Default password prompt: [sudo] password for %p: 
-Default user to run commands as: root
-Value to override user's $PATH with: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-Path to the editor for use by visudo: /usr/bin/editor
-When to require a password for 'list' pseudocommand: any
-When to require a password for 'verify' pseudocommand: all
-File descriptors >= 3 will be closed before executing a command
-Reset the environment to a default set of variables
-Environment variables to check for safety:
-	TZ
-	TERM
-	LINGUAS
-	LC_*
-	LANGUAGE
-	LANG
-	COLORTERM
-Environment variables to remove:
-	*=()*
-	RUBYOPT
-	RUBYLIB
-	PYTHONUSERBASE
-	PYTHONINSPECT
-	PYTHONPATH
-	PYTHONHOME
-	TMPPREFIX
-	ZDOTDIR
-	READNULLCMD
-	NULLCMD
-	FPATH
-	PERL5DB
-	PERL5OPT
-	PERL5LIB
-	PERLLIB
-	PERLIO_DEBUG
-	JAVA_TOOL_OPTIONS
-	SHELLOPTS
-	BASHOPTS
-	GLOBIGNORE
-	PS4
-	BASH_ENV
-	ENV
-	TERMCAP
-	TERMPATH
-	TERMINFO_DIRS
-	TERMINFO
-	_RLD*
-	LD_*
-	PATH_LOCALE
-	NLSPATH
-	HOSTALIASES
-	RES_OPTIONS
-	LOCALDOMAIN
-	CDPATH
-	IFS
-Environment variables to preserve:
-	XUSERFILESEARCHPATH
-	XFILESEARCHPATH
-	XAPPLRESDIR
-	_XKB_CHARSET
-	LC_*
-	LINGUAS
-	LANGUAGE
-	LANG
-	XDG_CURRENT_DESKTOP
-	XAUTHORIZATION
-	XAUTHORITY
-	PS2
-	PS1
-	PATH
-	LS_COLORS
-	KRB5CCNAME
-	HOSTNAME
-	DISPLAY
-	COLORS
-Locale to use while parsing sudoers: C
-Compress I/O logs using zlib
-Always run commands in a pseudo-tty
-Directory in which to store input/output logs: /var/log/sudo-io
-File in which to store the input/output log: %{seq}
-Add an entry to the utmp/utmpx file when allocating a pty
-PAM service name to use: sudo
-PAM service name to use for login shells: sudo
-Attempt to establish PAM credentials for the target user
-Create a new PAM session for the command to run in
-Perform PAM account validation management
-Enable sudoers netgroup support
-Check parent directories for writability when editing files with sudoedit
-Allow commands to be run even if sudo cannot write to the audit log
-Allow commands to be run even if sudo cannot write to the log file
-Log entries larger than this value will be split into multiple syslog messages: 960
-File mode to use for the I/O log files: 0600
-Execute commands by file descriptor instead of by path: digest_only
-Type of authentication timestamp record: tty
-Ignore case when matching user names
-Ignore case when matching group names
-Log when a command is allowed by sudoers
-Log when a command is denied by sudoers
-Sudo log server timeout in seconds: 30
-Enable SO_KEEPALIVE socket option on the socket connected to the logserver
-Verify that the log server's certificate is valid
-Set the pam remote user to the user running sudo
-The format of logs to produce: sudo
-Path to the file that is created the first time sudo is run: ~/.sudo_as_admin_successful
-Allow an intercepted command to run set setuid or setgid programs
-The largest size core dump file that may be created (in bytes): 0,0
-Store plaintext passwords in I/O log input
-List of regular expressions to use when matching a password prompt
-	[Pp]assword[: ]*
-The mechanism used by the intercept and log_subcmds options: trace
-Attempt to verify the command and arguments after execution
-
-Local IP address and netmask pairs:
-	128.199.72.216/255.255.192.0
-	10.15.0.7/255.255.0.0
-	10.104.0.4/255.255.240.0
-	fe80::8882:c0ff:feeb:8905/ffff:ffff:ffff:ffff::
-	fe80::4c4f:deff:fe2e:2acd/ffff:ffff:ffff:ffff::
-
-Sudoers I/O plugin version 1.9.14
-Sudoers audit plugin version 1.9.14
-===============================================================
-=               Instalasi Sudah Selesai                       =
-===============================================================
