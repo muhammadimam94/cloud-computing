@@ -76,28 +76,11 @@ systemctl enable fail2ban >> $log 2>&1
 echo "================ Finish Step 05 ======================" >> $log 2>&1
 echo "step 05. Instalasi Fail2ban oke"
 
-echo "06. Instalasi Sudo 1.9.5p2" >> $log 2>&1
+echo "06. Konfigurasi Date and Time Debian 10" >> $log 2>&1
 echo "================ Start Step 06 =======================" >> $log 2>&1
-if [ $(dpkg-query -W -f='${Version}' sudo 2>/dev/null | grep -c "1.9.5p2") -eq 0 ];
-	then
-	  wget https://www.sudo.ws/dist/sudo-1.9.5p2.tar.gz -O /opt/sudo-1.9.5p2.tar.gz >> $log 2>&1
-		cd /opt/ >> $log 2>&1
-		tar -xvzf /opt/sudo-1.9.5p2.tar.gz >> $log 2>&1
-		cd /opt/sudo-1.9.5p2 >> $log 2>&1
-		./configure >> $log 2>&1
-		make  >> $log 2>&1
-		make install >> $log 2>&1
-		sudo --version >> $log 2>&1
-	else
-		echo "version sudo sudah menggunakan version 1.9.5p2" >> $log 2>&1
-fi
-echo "step 06. Instalasi Sudo 1.9.5p2 oke"
-
-echo "07. Konfigurasi Date and Time Debian 10" >> $log 2>&1
-echo "================ Start Step 07 =======================" >> $log 2>&1
 sudo timedatectl set-timezone Asia/Jakarta >> $log 2>&1
-echo "================ Finish Step 07 ======================" >> $log 2>&1
-echo "step 07. Konfigurasi Date and Time Debian 10 oke"
+echo "================ Finish Step 06 ======================" >> $log 2>&1
+echo "step 06. Konfigurasi Date and Time Debian 10 oke"
 
 echo ""
 echo "===============================================================" >> $log 2>&1
